@@ -21,19 +21,19 @@ git clone https://github.com/yourusername/project-name.git
 Go to the project directory
 
 **For Client**
-cd ./flixxit/client
+- cd ./flixxit/client
 
 Install dependencies
-npm install
+- npm install
 
 Start the server
-npm run start
+- npm run start
 
 **For Server**
-cd ./flixxit/server
+- cd ./flixxit/server
 
 Install dependencies
-npm install
+- npm install
 
 Start the server
-nodemon index.js
+- nodemon index.js
