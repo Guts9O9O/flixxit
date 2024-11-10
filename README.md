@@ -14,10 +14,10 @@ Flixxit aims to be a web application with the likeness and basic feature set of 
 - Change Password: Registered users can change their account passwords.
 
 ## Installation
-```Clone the project
 
-  git clone https://github.com/omidhokate2002/flixxit
-Go to the project directory
+```bash
+git clone https://github.com/yourusername/project-name.git
+
 
 For Client
 
