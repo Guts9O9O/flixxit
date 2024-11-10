@@ -3,7 +3,8 @@
 Flixxit aims to be a web application with the likeness and basic feature set of OTT platforms such as Netflix, Prime Video and AppleTV+. While the actual products are built up of a complex web of microservices and infrastructure, the objective here is to build core user functionality.
 
 # Features
-1.Home Page: Displays a curated list of featured movies and TV series.
++Home Page: Displays a curated list of featured movies and TV series.
+
 2.Movies Page: Browse through a collection of movies with details like title, release year, and genres.
 3.TV Series Page: Explore TV series with information about the title, release year, and seasons.
 4.Search: Users can search for specific movies and TV series based on keywords.
