@@ -15,11 +15,10 @@ Flixxit aims to be a web application with the likeness and basic feature set of 
 
 ## Installation
 
-```bash
-git clone https://github.com/yourusername/project-name.git
+```Clone the Project
+git clone https://github.com/Guts9O9O/flixxit
 
-
-For Client
+```For Client
 
   cd ./flixxit/client
 Install dependencies
