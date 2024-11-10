@@ -15,24 +15,25 @@ Flixxit aims to be a web application with the likeness and basic feature set of 
 
 ## Installation
 
-```Clone the Project
-git clone https://github.com/Guts9O9O/flixxit
+**Clone the project**
 
-```For Client
+git clone https://github.com/yourusername/project-name.git
+Go to the project directory
 
-  cd ./flixxit/client
+**For Client**
+cd ./flixxit/client
+
 Install dependencies
+npm install
 
-  npm install
 Start the server
+npm run start
 
-  npm run start
-For Server
+**For Server**
+cd ./flixxit/server
 
-  cd ./flixxit/server
 Install dependencies
+npm install
 
-  npm install
 Start the server
-
-  nodemon index.js
+nodemon index.js
