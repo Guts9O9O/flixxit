@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://flixxit-umber.vercel.app", "http://localhost:3000"],
+    origin: "*",
     credentials: true,
   })
 );
