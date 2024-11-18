@@ -12,11 +12,13 @@ const privateClient = axios.create({
 });
 
 privateClient.interceptors.request.use(async (config) => {
+  const token = localStorage.getItem("actkn");
   return {
     ...config,
     headers: {
+      ...config.headers, // Preserve existing headers
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("actkn")}`,
+      Authorization: token ? `Bearer ${token}` : "", // Only add Authorization if token exists
     },
   };
 });
