@@ -10,7 +10,13 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://flixxit-umber.vercel.app", "http://localhost:3000"],
+    origin: ["https://flixxit-chinmays-projects-972d344e.vercel.app", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all required methods
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "x-csrf-token", // Add any custom headers your client uses
+    ],
     credentials: true,
   })
 );
