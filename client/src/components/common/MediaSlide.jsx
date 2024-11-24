@@ -1,22 +1,37 @@
-useEffect(() => {
-  const getMedias = async () => {
-    const { response, err } = await mediaApi.getList({
-      mediaType,
-      mediaCategory,
-      page: 1,
-    });
+import { useEffect, useState } from "react";
+import { SwiperSlide } from "swiper/react";
+import mediaApi from "../../api/modules/media.api";
+import AutoSwiper from "./AutoSwiper";
+import { toast } from "react-toastify";
+import MediaItem from "./MediaItem";
 
-    console.log("API Response:", response);
-    console.log("API Error:", err);
+const MediaSlide = ({ mediaType, mediaCategory }) => {
+  const [medias, setMedias] = useState([]);
 
-    if (response && Array.isArray(response.results)) {
-      console.log("Media results are valid:", response.results);
-      setMedias(response.results);
-    } else {
-      console.warn("Invalid media results, setting medias to empty array.");
-      setMedias([]); // Fallback to empty
-    }
-  };
+  useEffect(() => {
+    const getMedias = async () => {
+      const { response, err } = await mediaApi.getList({
+        mediaType,
+        mediaCategory,
+        page: 1,
+      });
 
-  getMedias();
-}, [mediaType, mediaCategory]);
+      if (response) setMedias(response.results);
+      if (err) toast.error(err.message);
+    };
+
+    getMedias();
+  }, [mediaType, mediaCategory]);
+
+  return (
+    <AutoSwiper>
+      {medias.map((media, index) => (
+        <SwiperSlide key={index}>
+          <MediaItem media={media} mediaType={mediaType} />
+        </SwiperSlide>
+      ))}
+    </AutoSwiper>
+  );
+};
+
+export default MediaSlide;
