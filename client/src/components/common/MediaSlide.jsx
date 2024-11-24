@@ -10,14 +10,26 @@ const MediaSlide = ({ mediaType, mediaCategory }) => {
 
   useEffect(() => {
     const getMedias = async () => {
-      const { response, err } = await mediaApi.getList({
-        mediaType,
-        mediaCategory,
-        page: 1,
-      });
+      try {
+        const { response, err } = await mediaApi.getList({
+          mediaType,
+          mediaCategory,
+          page: 1,
+        });
 
-      if (response) setMedias(response.results);
-      if (err) toast.error(err.message);
+        console.log("API Response:", response); // Debugging the response
+        console.log("Error:", err);
+
+        if (response && Array.isArray(response.results)) {
+          setMedias(response.results); // Update state only if results is an array
+        } else {
+          setMedias([]); // Set to an empty array as a fallback
+          toast.error(err?.message || "Failed to fetch media");
+        }
+      } catch (error) {
+        console.error("Error fetching medias:", error);
+        toast.error("An unexpected error occurred.");
+      }
     };
 
     getMedias();
@@ -25,11 +37,15 @@ const MediaSlide = ({ mediaType, mediaCategory }) => {
 
   return (
     <AutoSwiper>
-      {medias.map((media, index) => (
-        <SwiperSlide key={index}>
-          <MediaItem media={media} mediaType={mediaType} />
-        </SwiperSlide>
-      ))}
+      {medias && medias.length > 0 ? (
+        medias.map((media, index) => (
+          <SwiperSlide key={index}>
+            <MediaItem media={media} mediaType={mediaType} />
+          </SwiperSlide>
+        ))
+      ) : (
+        <div>Loading or no media available.</div>
+      )}
     </AutoSwiper>
   );
 };
