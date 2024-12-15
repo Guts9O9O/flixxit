@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://flixxit-delta.vercel.app", "flixxit-backend-7w6k7mz5i-chinmays-projects-972d344e.vercel.app"],
+    origin: ["https://flixxit-delta.vercel.app", "flixxit-backend-six.vercel.app"],
     credentials: true,
   })
 );
