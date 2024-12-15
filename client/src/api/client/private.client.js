@@ -2,7 +2,8 @@ import axios from "axios";
 import queryString from "query-string";
 
 // const baseURL = "http://127.0.0.1:5000/api/v1/";
-const baseURL = "https://flixxit-backend.vercel.app/api/v1/";
+// const baseURL = "https://flixxit-backend.vercel.app/api/v1/";
+const baseURL = "flixxit-backend-six.vercel.app/api/v1/";
 
 const privateClient = axios.create({
   baseURL,
